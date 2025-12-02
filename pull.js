@@ -139,8 +139,11 @@ async function startCamera() {
     isRunning = true;
     
     left_count = 0;
+    left_state = "bent";
     leftCounter.innerText = left_count;
+    
     right_count = 0;
+    right_state = "bent";
     rightCounter.innerText = right_count;
 
     startStopBtn.textContent = 'Stop Camera';
