@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
+    <header style="margin-top: 50px;">
         <h1>Push Counter</h1>
         <a href="index.html" class="back-button">← Back to Menu</a>
     </header>
@@ -30,10 +30,16 @@
     <div class="video-container">
         <video id="video" autoplay playsinline></video>
         <canvas id="canvas"></canvas>
+    </div>
+    <div class="camera-status-container">
         <h3>Camera Inactive</h3>
     </div>
     
     <div class="control-panel">
+        <a href="index.html" class="back-button-2">
+            <span class="button-icon">←</span>
+            <span class="button-text">Menu</span>
+        </a>
         <button id="startStopBtn" onclick="toggleCamera()">
             <span class="button-icon">▶️</span>
             <span class="button-text">Start Camera</span>
