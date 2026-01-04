@@ -140,6 +140,12 @@ async function startCamera() {
     rightState = "bent";
     rightCounter.innerText = rightCount;
 
+    // Hide camera status when camera is active
+    const cameraStatus = document.querySelector('.camera-status-container');
+    if (cameraStatus) {
+        cameraStatus.style.display = 'none';
+    }
+
     startStopBtn.textContent = 'Stop Camera';
     startStopBtn.className = 'stop';
 }
@@ -151,6 +157,13 @@ function stopCamera() {
     }
     
     canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+    
+    // Show camera status when camera is stopped
+    const cameraStatus = document.querySelector('.camera-status-container');
+    if (cameraStatus) {
+        cameraStatus.style.display = 'block';
+    }
+    
     startStopBtn.textContent = 'Start Camera';
     startStopBtn.className = '';
 }
