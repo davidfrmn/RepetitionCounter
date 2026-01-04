@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Rep Counter</title>
+    <title>Smart Gym Repetition Counter - Push</title>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Push Counter</h1>
-    
-    
+    <header>
+        <h1>Push Counter</h1>
+        <a href="index.html" class="back-button">← Back to Menu</a>
+    </header>
     
     <div class="counter-container">
-        <div class="counter" id="leftCounter">0</div>
-        <div class="counter" id="rightCounter">0</div>
+        <div class="counter-box">
+            <div class="counter-label">Left Arm</div>
+            <div class="counter" id="leftCounter">0</div>
+        </div>
+        <div class="counter-box">
+            <div class="counter-label">Right Arm</div>
+            <div class="counter" id="rightCounter">0</div>
+        </div>
     </div>
     
     <div class="video-container">
@@ -26,8 +33,13 @@
         <h3>Camera Inactive</h3>
     </div>
     
-    <button id="startStopBtn" onclick="toggleCamera()">Start Camera</button>
+    <div class="control-panel">
+        <button id="startStopBtn" onclick="toggleCamera()">
+            <span class="button-icon">▶️</span>
+            <span class="button-text">Start Camera</span>
+        </button>
+    </div>
 
-    <script src="push.js"></script>
+    <script src="js/push.js"></script>
 </body>
 </html>
