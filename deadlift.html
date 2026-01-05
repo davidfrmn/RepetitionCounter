@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Gym Repetition Counter - Deadlift</title>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header style="margin-top: 50px;">
+        <h1>Deadlift Counter</h1>
+        <a href="index.html" class="back-button">← Back to Menu</a>
+    </header>
+    
+    <div class="counter-container">
+        <div class="counter-box">
+            <div class="counter-label">Deadlift Count</div>
+            <div class="counter" id="deadliftCounter">0</div>
+            <div class="form-feedback" id="formFeedback"></div>
+        </div>
+    </div>
+    
+    <div class="video-container">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="camera-status-container">
+        <h3>Camera Inactive</h3>
+    </div>
+    
+    <div class="control-panel">
+        <a href="index.html" class="back-button-2">
+            <span class="button-icon">←</span>
+            <span class="button-text">Menu</span>
+        </a>
+        <button id="startStopBtn" onclick="toggleCamera()">
+            <span class="button-icon">▶️</span>
+            <span class="button-text">Start Camera</span>
+        </button>
+    </div>
+
+    <script src="js/deadlift.js"></script>
+</body>
+</html>

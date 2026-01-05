@@ -13,6 +13,10 @@ let leftState = "bent";
 let rightState = "bent";
 let leftCount = 0;
 let rightCount = 0;
+let minLeftElbowAngle = 180;
+let minRightElbowAngle = 180;
+const leftFeedback = document.getElementById('leftFeedback');
+const rightFeedback = document.getElementById('rightFeedback');
 
 function calculateAngle(pointA, pointB, pointC) {
     const u = {
@@ -75,20 +79,33 @@ function onResults(results) {
         const leftAngle = calculate2DAngle(leftShoulder, leftElbow, leftWrist);
         const rightAngle = calculate2DAngle(rightShoulder, rightElbow, rightWrist);
 
-        if (leftAngle < 60 && leftState === "straight") {
-            leftCount++;
+        const leftElbowAngle = calculateAngle(leftShoulder, leftElbow, leftWrist);
+        const rightElbowAngle = calculateAngle(rightShoulder, rightElbow, rightWrist);
+
+        if (leftElbowAngle < 80 && leftState === "straight") {
             leftState = "bent";
+            minLeftElbowAngle = 180;
+        } else if (leftElbowAngle > 150 && leftState === "bent") {
+            leftCount++;
             leftCounter.innerText = leftCount;
-        } else if (leftAngle > 120 && leftState === "bent") {
+            leftFeedback.textContent = minLeftElbowAngle < 60 ? 'Good form!' : 'Try to go lower';
+            leftFeedback.style.color = minLeftElbowAngle < 60 ? '#4CAF50' : '#FF9800';
             leftState = "straight";
+        } else if (leftElbowAngle < minLeftElbowAngle) {
+            minLeftElbowAngle = leftElbowAngle;
         }
-        
-        if (rightAngle < 60 && rightState === "straight") {
-            rightCount++;
+
+        if (rightElbowAngle < 80 && rightState === "straight") {
             rightState = "bent";
+            minRightElbowAngle = 180;
+        } else if (rightElbowAngle > 150 && rightState === "bent") {
+            rightCount++;
             rightCounter.innerText = rightCount;
-        } else if (rightAngle > 120 && rightState === "bent") {
+            rightFeedback.textContent = minRightElbowAngle < 60 ? 'Good form!' : 'Try to go lower';
+            rightFeedback.style.color = minRightElbowAngle < 60 ? '#4CAF50' : '#FF9800';
             rightState = "straight";
+        } else if (rightElbowAngle < minRightElbowAngle) {
+            minRightElbowAngle = rightElbowAngle;
         }
     }
     

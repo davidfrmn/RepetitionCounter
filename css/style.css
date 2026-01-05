@@ -80,6 +80,15 @@ h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--mauve);
+    margin: 5px 0;
+}
+
+.form-feedback {
+    font-size: 1rem;
+    font-weight: 500;
+    min-height: 1.5rem;
+    margin-top: 5px;
+    transition: color 0.3s ease;
 }
 .video-container {
     position: relative;
